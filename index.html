@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https:; media-src data:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data: https:; media-src data:; connect-src https://script.google.com https://script.googleusercontent.com; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="As-Suffah Institute — one-to-one online Quran and Islamic studies for all ages. Free trial class. আস-সুফফাহ ইনস্টিটিউট।">
 <!-- ADS SETUP (fill after you own a domain): <meta name="facebook-domain-verification" content="YOUR_CODE"> · Meta Pixel / Google Tag script goes here and its host must be added to the CSP above. -->
@@ -27,9 +27,9 @@ nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#E9E2D0;text-decoration:non
 .bt{border:1px solid #ffffff55;background:transparent;color:#fff;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:14px}
 .btn{display:inline-block;background:var(--gold);color:#0B2D36;font-weight:700;border:0;border-radius:6px;padding:11px 22px;text-decoration:none;cursor:pointer;font-size:16px}
 .btn.o{background:transparent;border:2px solid var(--teal2);color:var(--ink);padding:9px 18px}
-.slider{position:relative;overflow:hidden;background:var(--teal)}
+.slider{position:relative;overflow:hidden;background:var(--teal);max-width:1200px;width:calc(100% - 24px);margin:14px auto 0;border-radius:14px}
 .sl{display:none;min-height:430px;align-items:center;background:linear-gradient(135deg,#0B2D36,#1b5b5f);color:#fff;background-size:cover;background-position:center}.sl.on{display:flex}
-.sl .w{padding:50px 76px;width:100%}.sl.poster{background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#06161a;min-height:clamp(220px,42vw,520px)}.sl h1{margin:0 0 12px;font-size:clamp(30px,5vw,52px);line-height:1.25;color:var(--gold);max-width:700px}.sl p{margin:0 0 24px;font-size:20px;color:#E9E2D0;max-width:600px}
+.sl .w{padding:50px 76px;width:100%}.sl.poster{background-size:cover;background-position:center;background-color:#06161a;aspect-ratio:16/9;min-height:0}.sl h1{margin:0 0 12px;font-size:clamp(30px,5vw,52px);line-height:1.25;color:var(--gold);max-width:700px}.sl p{margin:0 0 24px;font-size:20px;color:#E9E2D0;max-width:600px}
 .arr{position:absolute;top:50%;transform:translateY(-50%);background:#0008;color:#fff;border:0;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px}.dots{position:absolute;bottom:14px;left:0;right:0;text-align:center}
 .dots button{width:11px;height:11px;border-radius:50%;border:0;margin:0 4px;background:#ffffff66;cursor:pointer}.dots button.on{background:var(--gold)}
 section{padding:60px 0}h2{margin:0 0 12px;font-size:clamp(26px,4vw,34px)}.sub{color:var(--mut);margin:0 0 26px;font-size:18px}
@@ -42,7 +42,7 @@ section{padding:60px 0}h2{margin:0 0 12px;font-size:clamp(26px,4vw,34px)}.sub{co
 .c ul{margin:0;padding-left:18px;font-size:15px;flex:1}
 .row{display:flex;gap:10px;flex-wrap:wrap}
 form{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}label{font-size:14px;color:var(--mut);display:block;margin-bottom:3px}
-input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
 .steps{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 26px;padding:0;list-style:none;counter-reset:s}.steps li{flex:1;min-width:210px;counter-increment:s}.steps li::before{content:counter(s);display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#0B2D36;font-weight:700;align-items:center;justify-content:center;margin-right:8px}
 .av{width:72px;height:72px;border-radius:50%;background:var(--teal2);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;margin:0 auto}
 .t{text-align:center;align-items:center}
@@ -75,6 +75,8 @@ dialog{max-width:640px;width:calc(100% - 32px);border:1px solid var(--line);bord
 <div><label data-k="fCourse"></label><select id="cs"></select></div><div><label data-k="fTime"></label><input id="tm" maxlength="60"></div><div style="grid-column:1/-1"><button class="btn" type="submit" data-k="fBtn"></button> <span id="fe" style="color:#c0392b"></span></div></form></div></section>
 
 <section id="board"><div class="w"><h2 data-k="boardH"></h2><p class="sub" data-k="boardS"></p><div class="g" id="bl"></div></div></section>
+<section id="reviews"><div class="w"><h2 data-k="revH"></h2><div class="g" id="rv"></div>
+<details style="margin-top:22px"><summary data-k="revAdd"></summary><form id="rf" style="margin-top:14px"><div><label data-k="rName"></label><input id="rn" maxlength="60" autocomplete="name"></div><div><label data-k="rCountry"></label><input id="rc" maxlength="60"></div><div><label data-k="rRating"></label><select id="rr"><option value="5">★★★★★</option><option value="4">★★★★</option><option value="3">★★★</option><option value="2">★★</option><option value="1">★</option></select></div><div style="grid-column:1/-1"><label data-k="rText"></label><textarea id="rt" rows="3" maxlength="600"></textarea></div><div style="grid-column:1/-1"><button class="btn" type="submit" data-k="rBtn"></button> <span id="rm"></span></div></form></details></div></section>
 <section class="alt"><div class="w"><h2 data-k="faqH"></h2><div id="fq"></div></div></section>
 <section class="alt"><div class="w"><h2 data-k="socH"></h2><div class="g" id="soc"></div></div></section>
 <section id="contact"><div class="w"><h2 data-k="contH"></h2><p style="font-size:19px"><b>WhatsApp:</b> <a href="https://wa.me/8801349037703" rel="noopener noreferrer" target="_blank" dir="ltr">+880 1349-037703</a><br><b data-k="addr"></b>: <span data-k="addrV"></span><br><b>Email</b>: <a href="mailto:assuffahinstitute7703@gmail.com">assuffahinstitute7703@gmail.com</a><br><a href="https://www.facebook.com/profile.php?id=61592474635111" rel="noopener noreferrer" target="_blank">Facebook</a></p></div></section>
@@ -85,6 +87,7 @@ dialog{max-width:640px;width:calc(100% - 32px);border:1px solid var(--line);bord
 
 <script>
 var WA='8801349037703',L='bn',D={
+revH:['Parents say','অভিভাবকদের মতামত'],revAdd:['Write a review','রিভিউ লিখুন'],rName:['Your name','আপনার নাম'],rCountry:['Country (optional)','দেশ (ঐচ্ছিক)'],rRating:['Rating','রেটিং'],rText:['Your review','আপনার মতামত'],rBtn:['Submit','জমা দিন'],rThanks:['Thank you! Your review will appear after approval.','ধন্যবাদ! অনুমোদনের পর আপনার রিভিউ দেখা যাবে।'],rErr:['Please fill the form correctly.','ঠিকভাবে পূরণ করুন।'],rNone:['No reviews yet.','এখনো কোনো রিভিউ নেই।'],
 openNew:['Open in new tab','নতুন ট্যাবে খুলুন'],
 portal:['Portal login','পোর্টাল লগইন'],adminL:['Admin login','অ্যাডমিন লগইন'],teachL:['Teacher login','শিক্ষক লগইন'],regL:['Teacher registration','শিক্ষক নিবন্ধন'],
 socH:['Follow us','আমাদের সাথে থাকুন'],visit:['Visit →','দেখুন →'],
@@ -97,7 +100,7 @@ fName:['Name','নাম'],fPhone:['WhatsApp number','হোয়াটসঅ�
 boardH:['Board of Directors','পরিচালনা পর্ষদ'],boardS:['The people guiding the institute.','যাঁরা প্রতিষ্ঠান পরিচালনা করছেন।'],
 faqH:['Questions','প্রশ্নোত্তর'],contH:['Contact','যোগাযোগ'],addr:['Address','ঠিকানা'],addrV:['Dhaka, Bangladesh','ঢাকা, বাংলাদেশ'],priv:['Privacy Policy','গোপনীয়তা নীতি'],terms:['Terms','শর্তাবলি'],close:['Close','বন্ধ'],
 enroll:['Enroll now','ভর্তি হোন'],trial:['Free trial','ফ্রি ট্রায়াল'],mo:['/ month','/ মাস'],pc:['/class','/ক্লাস'],med:['Bangla medium','বাংলা মিডিয়াম'],one:['One-to-one · flexible & reschedulable','১-অন-১ · সময় পরিবর্তনযোগ্য']};
-var EMAIL='assuffahinstitute7703@gmail.com',PLAT=['WhatsApp','Google Meet','Zoom'],STATS=[['[00+]',['Students taught','শিক্ষার্থী']],['[00+]',['Countries','দেশ']],['[0.0/5]',['Parent rating','অভিভাবকদের রেটিং']]];
+var EMAIL='assuffahinstitute7703@gmail.com',PLAT=['WhatsApp','Google Meet','Zoom'],STATS=[];
 var IC={wa:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.5s1.8 2.8 4.4 3.9c1.6.7 2.3.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c-.1-.1-.2-.2-.5-.3z"/></svg>',
 ph:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
 ml:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>'};
@@ -111,10 +114,10 @@ var CO=[
 var FQ=[[['Who can join?','কারা ভর্তি হতে পারবেন?'],['Children from age 4 and adults of any age, beginners included.','৪ বছর থেকে শুরু করে যেকোনো বয়সের শিক্ষার্থী, নতুনরাও।']],
 [['Can the class time change?','ক্লাসের সময় কি বদলানো যায়?'],['Yes — tell us and we will reschedule with the same teacher.','হ্যাঁ, জানালে একই শিক্ষকের সাথে সময় বদলে দেওয়া হয়।']],
 [['What do I need?','কী কী লাগবে?'],['A phone or computer with internet and WhatsApp or a video app.','ইন্টারনেটসহ ফোন বা কম্পিউটার এবং হোয়াটসঅ্যাপ বা ভিডিও অ্যাপ।']]];
-var BD=[['[NAME]','[ROLE]']];
+var BD=[],RV=[],GAS='https://script.google.com/macros/s/AKfycbzkWbue8IgcPMO--XwaSnQJ2rpn_GWG-FVfjZqdFg_qJG-PGeH3TtBa1oWCMx1e2UscVQ/exec';
 var POL={priv:[['Privacy Policy','গোপনীয়তা নীতি'],['This website does not store your personal data. When you use the booking form, your details are sent only to our WhatsApp, where WhatsApp’s own policy applies. We may use advertising tools (such as Meta Pixel) to measure ads; they can use cookies. Contact us on WhatsApp to ask about your data.','এই ওয়েবসাইট আপনার ব্যক্তিগত তথ্য সংরক্ষণ করে না। বুকিং ফর্ম ব্যবহার করলে তথ্য শুধু আমাদের হোয়াটসঅ্যাপে যায়, যেখানে হোয়াটসঅ্যাপের নিজস্ব নীতি প্রযোজ্য। বিজ্ঞাপন পরিমাপে আমরা বিজ্ঞাপন-টুল (যেমন মেটা পিক্সেল) ব্যবহার করতে পারি; এগুলো কুকি ব্যবহার করতে পারে। আপনার তথ্য সম্পর্কে জানতে হোয়াটসঅ্যাপে যোগাযোগ করুন।']],
 terms:[['Terms','শর্তাবলি'],['Classes are one-to-one and scheduled by agreement. Fees are monthly as listed. The trial class is free. [YOUR REFUND / CANCELLATION POLICY]','ক্লাস ১-অন-১ এবং সময় আলোচনার ভিত্তিতে নির্ধারিত। ফি মাসিক, তালিকা অনুযায়ী। ট্রায়াল ক্লাস ফ্রি। [আপনার ফেরত/বাতিল নীতি]']]};
-var SL=[['Learn the Quran from home','ঘরে বসে কুরআন শিখুন','Live, one-to-one classes for every age.','সব বয়সের জন্য সরাসরি ১-অন-১ ক্লাস।',''],['One teacher. One student.','এক শিক্ষক, এক শিক্ষার্থী','Your own pace, your own schedule.','আপনার গতিতে, আপনার সময়ে।',''],['Your first class is free','প্রথম ক্লাস ফ্রি','Book a trial today on WhatsApp.','আজই হোয়াটসঅ্যাপে ট্রায়াল বুক করুন।','']];
+var SL=[['Hifzul Quran','হিফজুল কুরআন','','','img/banner-hifz.jpg',''],['Quran for adults','প্রাপ্তবয়স্কদের কুরআন শিক্ষা','','','img/banner-adults.jpg',''],['Islamic studies & Fiqh','ইসলামী শিক্ষা ও ফিকহ কোর্স','','','img/banner-islamic-studies.jpg','']];
 var i=L==='bn'?1:0,cur=0,tm,$=function(x){return document.getElementById(x)},tx=function(a){return a[i]};
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
 function wa(m){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m)}
@@ -122,7 +125,7 @@ function track(n){try{if(window.fbq)fbq('track',n)}catch(e){}}
 function draw(){i=L==='bn'?1:0;document.body.className=L;document.documentElement.lang=L;
  document.querySelectorAll('[data-k]').forEach(function(e){e.textContent=tx(D[e.dataset.k])});
  $('lg').textContent=L==='bn'?'English':'বাংলা';var dk=document.documentElement.dataset.theme==='dark'||(!document.documentElement.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches);$('th').textContent=dk?'☀':'🌙';
- var s=$('slides');s.textContent='';SL.forEach(function(x,k){var d=el('div','sl'+(k===cur?' on':'')+(x[4]?' poster':''));if(x[4]){if(x[4].indexOf('data:video')===0){var v=el('video');v.src=x[4];v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute('aria-hidden','true');v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:contain';d.style.position='relative';d.appendChild(v)}else d.style.backgroundImage='url('+x[4]+')';d.setAttribute('role','img');d.setAttribute('aria-label',x[i]);d.style.cursor='pointer';d.onclick=function(){location.hash='#trial'}}else{var w=el('div','w');w.appendChild(el('h1','',x[i]));w.appendChild(el('p','',x[2+i]));var a=el('a','btn',tx(D.trial));a.href='#trial';w.appendChild(a);d.appendChild(w)}s.appendChild(d)});
+ var s=$('slides');s.textContent='';SL.forEach(function(x,k){var d=el('div','sl'+(k===cur?' on':'')+(x[4]?' poster':''));if(x[4]){if(x[4].indexOf('data:video')===0){var v=el('video');v.src=x[4];v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute('aria-hidden','true');v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:contain';d.style.position='relative';d.appendChild(v)}else d.style.backgroundImage='url('+x[4]+')';d.setAttribute('role','img');d.setAttribute('aria-label',x[i]);d.style.cursor='pointer';d.onclick=function(){if(/^https:\/\//.test(x[5]||''))window.open(x[5],'_blank','noopener');else location.hash='#trial'}}else{var w=el('div','w');w.appendChild(el('h1','',x[i]));w.appendChild(el('p','',x[2+i]));var a=el('a','btn',tx(D.trial));a.href='#trial';w.appendChild(a);d.appendChild(w)}s.appendChild(d)});
  var dt=$('dots');dt.textContent='';SL.forEach(function(x,k){var b=el('button',k===cur?'on':'');b.setAttribute('aria-label','Slide '+(k+1));b.onclick=function(){go(k)};dt.appendChild(b)});
  var cl=$('cl');cl.textContent='';var cs=$('cs');cs.textContent='';
  CO.forEach(function(c){var n=tx(c[0]),d=el('div','c');d.appendChild(el('h3','',n));d.appendChild(el('small','',tx(c[1])));
@@ -132,7 +135,7 @@ function draw(){i=L==='bn'?1:0;document.body.className=L;document.documentElemen
   var br=el('div','row'),e=el('a','btn',tx(D.enroll));e.href=wa('Assalamu alaikum, I want to enroll: '+c[0][0]);e.target='_blank';e.rel='noopener noreferrer';e.onclick=function(){track('Lead')};
   var t=el('a','btn o',tx(D.trial));t.href='#trial';br.appendChild(e);br.appendChild(t);d.appendChild(br);cl.appendChild(d);var o=el('option','',n);o.value=c[0][0];cs.appendChild(o)});
  var q=$('fq');q.textContent='';FQ.forEach(function(f){var d=el('details'),s=el('summary','',tx(f[0]));d.appendChild(s);d.appendChild(el('p','',tx(f[1])));q.appendChild(d)});
- var b=$('bl');b.textContent='';BD.concat(BD,BD).forEach(function(m){var d=el('div','c t');d.appendChild(el('div','av','＋'));d.appendChild(el('h3','',m[0]));d.appendChild(el('small','',m[1]));b.appendChild(d)});intro();floaters();social();menu()}
+ var b=$('bl');b.textContent='';BD.forEach(function(m){var d=el('div','c t'),av=el('div','av');if(m[2]){var im=el('img');im.src=m[2];im.alt=m[0];im.style.cssText='width:100%;height:100%;border-radius:50%;object-fit:cover';av.appendChild(im)}else av.textContent=(m[0]||'?').charAt(0);d.appendChild(av);d.appendChild(el('h3','',m[0]));d.appendChild(el('small','',m[1]));b.appendChild(d)});$('board').style.display=BD.length?'':'none';reviews();intro();floaters();social();menu()}
 function intro(){var ib=$('ib');ib.textContent='';var a=el('a','btn dk big',tx(D.bookT));a.href='#trial';ib.appendChild(a);
  var g=el('a','btn gr big');g.innerHTML=IC.wa;g.appendChild(document.createTextNode(' '+tx(D.chatWa)));g.href=wa('Assalamu alaikum, I would like to know more about As-Suffah Institute.');g.target='_blank';g.rel='noopener noreferrer';g.onclick=function(){track('Contact')};ib.appendChild(g);
  var p=$('pills');p.textContent='';PLAT.forEach(function(x){p.appendChild(el('span','pill',x))});
@@ -149,6 +152,13 @@ function closeMenu(){$('mp').hidden=true;$('mb').setAttribute('aria-expanded','f
 function menu(){var p=$('mp');p.textContent='';p.appendChild(el('b','',tx(D.portal)));[['admin','adminL'],['teacher','teachL'],['register','regL']].forEach(function(x){var a=el('a','',tx(D[x[1]]));a.href=PORTAL+'?m='+x[0];p.appendChild(a)})}
 $('mb').onclick=function(e){e.stopPropagation();var h=$('mp').hidden;$('mp').hidden=!h;this.setAttribute('aria-expanded',String(h))};
 document.addEventListener('click',function(e){if(!$('mp').contains(e.target))closeMenu()});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+function api(fn,args,ok,fail){fetch(GAS,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fn:fn,args:args})}).then(function(r){return r.json()}).then(function(j){if(j.error){if(fail)fail(j.error)}else if(ok)ok(j.result)}).catch(function(e){if(fail)fail(e)})}
+function reviews(){var r=$('rv');r.textContent='';if(!RV.length){r.appendChild(el('p','',tx(D.rNone)));return}RV.forEach(function(x){var n=Math.max(0,Math.min(5,+x.Rating||0)),d=el('div','c');d.appendChild(el('div','','★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n)));d.appendChild(el('p','',x.Text));d.appendChild(el('small','',x.Name+(x.Country?' · '+x.Country:'')));r.appendChild(d)})}
+function applyPublic(p){var s=p.stats||{};STATS=[];if(s.students>0)STATS.push([s.students+'+',['Students','শিক্ষার্থী']]);if(s.countries>0)STATS.push([s.countries+'+',['Countries','দেশ']]);if(s.rating>0)STATS.push([s.rating+'/5',['Parent rating','অভিভাবকদের রেটিং']]);
+ if(p.banners&&p.banners.length){SL=p.banners.map(function(b){return [b.Title||'',b.Title||'','','',b.Image,b.Link]});cur=0}
+ BD=(p.board||[]).map(function(m){return [m.Name,m.Role,m.Photo]});RV=p.reviews||[];draw();go(0)}
+$('rf').onsubmit=function(e){e.preventDefault();var n=$('rn').value.trim(),t=$('rt').value.trim();if(n.length<2||t.length<10){$('rm').textContent=tx(D.rErr);return}
+ api('submitReview',[{Name:n,Country:$('rc').value.trim(),Rating:+$('rr').value,Text:t}],function(r){$('rm').textContent=r&&r.ok?tx(D.rThanks):tx(D.rErr);if(r&&r.ok)$('rf').reset()},function(){$('rm').textContent=tx(D.rErr)})};
 function go(k){cur=(k+SL.length)%SL.length;document.querySelectorAll('.sl').forEach(function(e,j){e.classList.toggle('on',j===cur)});document.querySelectorAll('.sl video').forEach(function(v){if(v.parentNode.classList.contains('on')){var r=v.play();if(r&&r.catch)r.catch(function(){})}else v.pause()});document.querySelectorAll('#dots button').forEach(function(e,j){e.classList.toggle('on',j===cur)});clearInterval(tm);tm=setInterval(function(){go(cur+1)},6000)}
 $('pv').onclick=function(){go(cur-1)};$('nx').onclick=function(){go(cur+1)};
 $('lg').onclick=function(){L=L==='bn'?'en':'bn';try{localStorage.setItem('l',L)}catch(e){}draw()};
@@ -159,7 +169,7 @@ function pol(k){var d=$('dgb');d.textContent='';d.appendChild(el('h2','',tx(POL[
 $('pp').onclick=function(){pol('priv')};$('tt').onclick=function(){pol('terms')};$('dc').onclick=function(){$('dg').close()};
 
 try{var l=localStorage.getItem('l'),t=localStorage.getItem('t');if(l==='en'||l==='bn')L=l;if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}
-draw();go(0);
+draw();go(0);api('getPublic',[],applyPublic);
 </script>
 </body>
 </html>
