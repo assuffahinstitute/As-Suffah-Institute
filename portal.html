@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data: https:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline' https://cdnjs.cloudflare.com; connect-src https://jxgedotvnsdncfdscyzz.supabase.co; frame-src about: data: blob:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data: https:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline' https://cdnjs.cloudflare.com; connect-src https://ipdzulglpcmvppbimobt.supabase.co; frame-src about: data: blob:; base-uri 'none'; form-action 'none'">
 <meta name="robots" content="noindex,nofollow">
 <script>
 /* The management system talks to the Supabase backend: google.script.run.X(...) becomes one POST to the "api" function. */
 (function(){
-  var API='https://jxgedotvnsdncfdscyzz.supabase.co/functions/v1/api';
+  var API='https://ipdzulglpcmvppbimobt.supabase.co/functions/v1/api';
   function mk(ok,fail){return new Proxy({},{get:function(_,p){
     if(p==='withSuccessHandler')return function(f){return mk(f,fail)};
     if(p==='withFailureHandler')return function(f){return mk(ok,f)};
